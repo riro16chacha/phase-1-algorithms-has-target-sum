@@ -1,5 +1,18 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  //for constant time 0(1)
+  const seen = new set();
+  //now we interate over each number in an array 0(n)
+  for(let number of array){
+    const complement = target-number;
+    //this will calculate the compliment for the current number 0(1)
+    //if the outcome of the complement has beeen captured before then we have found a pair that adds up to the target 0(1)
+    if (seen.has(complement)) {
+      return true;
+    }
+    seen.add(number);
+  }
+  return false;
 }
 
 /* 
